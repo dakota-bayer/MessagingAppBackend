@@ -19,7 +19,15 @@ Before you begin, ensure you have the following installed on your machine:
 
 - Docker Desktop [(terminal instructions)](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
 - PostgreSQL [(terminal instructions)](https://www.postgresql.org/download/linux/ubuntu/)
+- pgAdmin (terminal instructions below, or [download here](https://www.pgadmin.org/download/))
+  - `docker pull dpage/pgadmin4`
+  - `docker run --name pgadmin-container -p 5050:80 -e PGADMIN_DEFAULT_EMAIL=user@domain.com -e PGADMIN_DEFAULT_PASSWORD=catsarecool -d dpage/pgadmin4`
+  - Save the host name/address from this command `docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' pgadmin-container`
+  - Open pgAdmin from docker ([should be this address](http://localhost:5050)), sign in (with credentials from string above), and create a local DB server using the host name/address from previous step
+- RabbitMQ [(terminal instructions)](https://www.rabbitmq.com/docs/download)
 - .NET SDK [(terminal instructions)](https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual#scripted-install)
+  - Check that it was installed properly with `dotnet --version`
+  - If it installed successfully but the `dotnet` command isn't recognized, then add the path to dotnet in your environment variables by adding `export PATH="$PATH:$HOME/.dotnet"` to your .bashrc file
 - A code editor, such as [JetBrains Rider](https://www.jetbrains.com/rider/) or [Visual Studio Code](https://code.visualstudio.com/).
 
 ---
