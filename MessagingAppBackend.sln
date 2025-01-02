@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationRunner", "MigrationRunner\MigrationRunner.csproj", "{D75CC53D-8508-4F48-B0C6-6E464F051539}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessagingAppProducer", "MessagingAppProducer\MessagingAppProducer.csproj", "{868CC2AA-36A0-4CC2-B97F-51865FC6EC68}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{D75CC53D-8508-4F48-B0C6-6E464F051539}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D75CC53D-8508-4F48-B0C6-6E464F051539}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D75CC53D-8508-4F48-B0C6-6E464F051539}.Release|Any CPU.Build.0 = Release|Any CPU
+		{868CC2AA-36A0-4CC2-B97F-51865FC6EC68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{868CC2AA-36A0-4CC2-B97F-51865FC6EC68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{868CC2AA-36A0-4CC2-B97F-51865FC6EC68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{868CC2AA-36A0-4CC2-B97F-51865FC6EC68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
