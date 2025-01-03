@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using RabbitMQ.Client;
 using System.Text;
 using System.Text.Json;
+using SharedModels;
 
 namespace MessagingAppProducer.Controllers;
 
@@ -20,8 +21,13 @@ public class MessageController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> PublishMessageAsync([FromBody] MessageDto message)
+    public async Task<IActionResult> PublishMessageAsync([FromBody] MessageCreateRequest message)
     {
+        var outgoingMessage = new Message
+        {
+            Content = message.Content
+        };
+        
         try
         {
             await using var connection = await _connectionFactory.CreateConnectionAsync();
@@ -35,7 +41,7 @@ public class MessageController : ControllerBase
                 arguments: null);
 
             // Serialize the message to JSON
-            var messageBody = JsonSerializer.Serialize(message);
+            var messageBody = JsonSerializer.Serialize(outgoingMessage);
             var body = Encoding.UTF8.GetBytes(messageBody);
 
             // Publish the message
@@ -50,10 +56,4 @@ public class MessageController : ControllerBase
             return StatusCode(500, new { error = ex.Message });
         }
     }
-}
-
-public class MessageDto
-{
-    public string Content { get; set; } = "";
-    public DateTime Timestamp { get; set; }
 }

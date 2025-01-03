@@ -17,7 +17,7 @@ MessagingApp is a proof-of-concept messaging application designed to demonstrate
 
 Before you begin, ensure you have the following installed on your machine:
 
-- Docker Desktop [(terminal instructions)](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
+- Docker Desktop [(terminal instructions)](https://docs.docker.com/desktop/setup/install/linux/ubuntu/)
 - PostgreSQL [(terminal instructions)](https://www.postgresql.org/download/linux/ubuntu/)
 - pgAdmin (terminal instructions below, or [download here](https://www.pgadmin.org/download/))
   - `docker pull dpage/pgadmin4`
@@ -25,6 +25,7 @@ Before you begin, ensure you have the following installed on your machine:
   - Save the host name/address from this command `docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' pgadmin-container`
   - Open pgAdmin from docker ([should be this address](http://localhost:5050)), sign in (with credentials from string above), and create a local DB server using the host name/address from previous step
 - RabbitMQ [(terminal instructions)](https://www.rabbitmq.com/docs/download)
+  - `docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:4.0-management`
 - .NET SDK [(terminal instructions)](https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual#scripted-install)
   - Check that it was installed properly with `dotnet --version`
   - If it installed successfully but the `dotnet` command isn't recognized, then add the path to dotnet in your environment variables by adding `export PATH="$PATH:$HOME/.dotnet"` to your .bashrc file
